@@ -1,0 +1,14 @@
+---
+# defaults file for bunkerweb
+bunkerweb_version: 1.4.1
+nginx_version: 1.20.2
+freeze_versions: true
+enable_ui: false
+variables_env: files/variables.env
+custom_configs: false
+custom_configs_path: 
+ http:
+ server-http:
+ default-server-http:
+ modsec-crs:
+ modsec:

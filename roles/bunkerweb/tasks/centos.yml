@@ -1,0 +1,77 @@
+---
+
+- name: (Centos) Upgrade the system
+  yum:
+    name: '*'
+    state: latest
+
+- name: (Centos) Copy ../files/nginx.repo to /etc/yum.repos.d/nginx.repo
+  copy:
+    src: ../files/nginx.repo
+    dest: /etc/yum.repos.d/nginx.repo
+    owner: root
+    group: root
+    mode: 0644
+    force: yes
+
+- name: (Centos) Install epel-release dnf
+  dnf:
+    name: "epel-release"
+    state: present
+
+- name: (Centos) Install nginx dnf version 1.20.2
+  dnf:
+    name: "nginx-{{ nginx_version }}"
+    state: present
+
+- name: (Centos) Install python3-dnf-plugin-versionlock
+  dnf:
+    name: "python3-dnf-plugin-versionlock"
+    state: present
+
+- name: (Centos) Prevent nginx from being updated
+  community.general.yum_versionlock:
+    state: present
+    name: "nginx-{{ nginx_version }}"
+
+- name: (Centos) add bunkerweb rpm-key
+  rpm_key: 
+    key: https://packagecloud.io/bunkerity/bunkerweb/gpgkey 
+    state: present 
+    fingerprint: 9F5B478F976C7F30191887DCA84F8F37160CA01F
+
+- name: (Centos) add bunkerweb yum repository
+  yum_repository: 
+    name: bunkerity_bunkerweb
+    description: Bunkerweb repo
+    baseurl: https://packagecloud.io/bunkerity/bunkerweb/el/8/$basearch
+    file: bunkerity_bunkerweb
+    gpgcheck: no
+    state: present 
+  
+- name: (Centos) Install bunkerweb dnf version 1.4.1
+  dnf:
+    name: "bunkerweb-{{ bunkerweb_version }}"
+    state: present
+ 
+- name: (Centos) Prevent bunkerweb from being updated
+  community.general.yum_versionlock:
+    state: present
+    name: "bunkerweb={{ bunkerweb_version }}"
+
+- name: (Centos) Replace /opt/bunkerweb/variables.env
+  copy:
+    src: "{{ variables_env }}"
+    dest: /opt/bunkerweb/variables.env
+    owner: root
+    group: root
+    mode: 0644
+    force: yes
+  notify: (Handler) restart bunkerweb
+
+- name: (Centos) If var {{enable_ui}} is false, systemctl disable bunkerweb-ui
+  service:
+    name: bunkerweb-ui
+    state: stopped
+    enabled: no
+  when: enable_ui|bool == false
