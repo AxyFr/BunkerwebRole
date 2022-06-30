@@ -1,0 +1,7 @@
+---
+# handlers file for bunkerweb
+- name: (Handler) bunkerweb
+  service:
+    name: bunkerweb
+    state: restarted
+  listen: (Handler) restart bunkerweb
