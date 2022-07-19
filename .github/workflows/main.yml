@@ -3,7 +3,7 @@ name: GitHub Action
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   build:
@@ -15,3 +15,4 @@ jobs:
         uses: robertdebock/galaxy-action@1.2.1
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
+          git_branch: main
