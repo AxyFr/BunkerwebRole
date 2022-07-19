@@ -12,5 +12,3 @@
 - name: Fedora
   include_tasks: roles/bunkerweb/tasks/fedora.yml
   when: ansible_facts['distribution'] == 'Fedora'
-
-
