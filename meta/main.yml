@@ -16,8 +16,6 @@ galaxy_info:
   # - CC-BY-4.0
   license: license (GPL-2.0-or-later, MIT, etc)
   
-   galaxy_info.github_branch
-  
   min_ansible_version: 2.1
 
   # If this a Container Enabled role, provide the minimum Ansible Container version.
@@ -28,7 +26,8 @@ galaxy_info:
   # If you don't wish to enumerate all versions for a particular platform, use 'all'.
   # To view available platforms and versions (or releases), visit:
   # https://galaxy.ansible.com/api/v1/platforms/
-  #
+  github_branch: main
+  
   # platforms:
   # - name: Fedora
   #   versions:
