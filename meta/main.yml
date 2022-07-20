@@ -1,7 +1,7 @@
 galaxy_info:
-  author: your name
-  description: your role description
-  company: your company (optional)
+  author: Test Foo
+  description: Test role for Bunkerweb
+  company: Foo Enterprise
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
@@ -28,21 +28,20 @@ galaxy_info:
   # https://galaxy.ansible.com/api/v1/platforms/
   github_branch: main
   
+  Ceci est un test
+  
   platforms:
     - name: Fedora
       versions:
         - 36
     - name: Ubuntu
       versions:
-        - 22.04
         - jammy
     - name: Debian
       versions:
-        - 11
         - bullseye
-    - name: CentOs
+    - name: EL
       versions:
-        - Stream
         - 8
     
   galaxy_tags: []
