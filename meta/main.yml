@@ -34,12 +34,15 @@ galaxy_info:
         - 36
     - name: Ubuntu
       versions:
+        - 22.04
         - jammy
     - name: Debian
       versions:
+        - 11
         - bullseye
-    - name: EL
+    - name: CentOs
       versions:
+        - Stream
         - 8
     
   galaxy_tags: []
