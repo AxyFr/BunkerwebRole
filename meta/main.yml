@@ -29,15 +29,15 @@ galaxy_info:
   github_branch: main
   
   platforms:
-  - name: Fedora
-     versions:
-     - 36
-  - name: Ubuntu
-     versions:
-     - jammy
-  - name: Debian
-     versions:
-     - bullseye
+    - name: Fedora
+       versions:
+         - 36
+    - name: Ubuntu
+      versions:
+       - jammy
+    - name: Debian
+       versions:
+         - bullseye
   #- name: Centos
    #  versions:
     # - 36
