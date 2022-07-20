@@ -30,18 +30,18 @@ galaxy_info:
   
   platforms:
     - name: Fedora
-       versions:
-         - 36
+      versions:
+        - 36
     - name: Ubuntu
       versions:
-       - jammy
+        - jammy
     - name: Debian
-       versions:
-         - bullseye
+      versions:
+        - bullseye
   #- name: Centos
    #  versions:
     # - 36
-
+    
   galaxy_tags: []
     # List tags for your role here, one per line. A tag is a keyword that describes
     # and categorizes the role. Users find roles by searching for tags. Be sure to
