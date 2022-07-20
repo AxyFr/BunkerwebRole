@@ -28,8 +28,6 @@ galaxy_info:
   # https://galaxy.ansible.com/api/v1/platforms/
   github_branch: main
   
-  Ceci est un test
-  
   platforms:
     - name: Fedora
       versions:
